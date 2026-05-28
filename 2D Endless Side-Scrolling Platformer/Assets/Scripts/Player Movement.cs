@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     private Rigidbody2D rb;
+    private Animator animetor;
 
     private bool isGround;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     {
         isGround = true;
         rb = GetComponent<Rigidbody2D>();
+        animetor = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -33,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
         {
             jump();
         }
+        checkGrounded();
     }
 
     public void jump()
@@ -42,20 +46,42 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocityY = jumpForce;
             isGround = false;
             Debug.Log("Jump");
+            animetor.SetBool("Jump", true);
         }
+    }
+    void checkGrounded()
+    {
+        Collider2D collinfo = Physics2D.OverlapCircle(checkground.position, checkRadius, checkgroundlayer);
+        if (collinfo)
+        {
+            //Debug.Log("player is collider with the ground");
+            isGround = true ;
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+       if(checkground == null)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(checkground.position, checkRadius);
+        }
+            
+     
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         isGround = true;
+        if(collision.gameObject.tag == "Ground")
+        {
+            animetor.SetBool("Jump", false);
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         isGround = false;
     }
-    void checkGrounded()
-    {
-        //Physics2D.OverlapCircle();
-    }
+   
         
 }
