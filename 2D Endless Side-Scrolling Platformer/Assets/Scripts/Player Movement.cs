@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //isGround = true;
+        isGround = true;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -40,10 +40,19 @@ public class PlayerMovement : MonoBehaviour
         if (isGround == true)
         {
             rb.linearVelocityY = jumpForce;
-            //isGround = false;
+            isGround = false;
+            Debug.Log("Jump");
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        isGround = true;
+    }
 
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        isGround = false;
+    }
     void checkGrounded()
     {
         //Physics2D.OverlapCircle();

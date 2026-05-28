@@ -475,6 +475,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4396355745921297120, guid: a9256f984e4b0f54fa0212ffa8730b14, type: 3}
+      propertyPath: jumpForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4396355745921297120, guid: a9256f984e4b0f54fa0212ffa8730b14, type: 3}
       propertyPath: checkground
       value: 
       objectReference: {fileID: 1315448497}
