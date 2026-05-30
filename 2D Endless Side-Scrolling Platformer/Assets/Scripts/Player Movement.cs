@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        isGround = true;
+        isGround = true; 
         if(collision.gameObject.tag == "Ground")
         {
             animetor.SetBool("Jump", false);
