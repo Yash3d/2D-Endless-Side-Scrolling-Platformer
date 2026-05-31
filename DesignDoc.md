@@ -1,0 +1,1 @@
+in my game i frist used a player strips and then i make player movement then shooter and then i set up a enimes and frist import the enimes and make shother mechanis and  make a backgroug oof the game and then make a objct pooling systen for a endless runner and add trap in this game and then ui , UI like a main menu ui and puse menu ui ande add audio in this game ect.
