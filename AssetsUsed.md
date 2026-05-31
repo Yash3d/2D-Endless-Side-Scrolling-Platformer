@@ -1,1 +1,1 @@
-
+for this game i used a https://www.patreon.com/posts/2d-endless-game-147635077  this pages all the aesste for this game and this all the assest i downwd in itch.io and i download all the free asset i was finde for this game
